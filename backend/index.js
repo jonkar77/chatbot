@@ -21,7 +21,7 @@ const mongoUrl = process.env.MONGO_URL;
 
 app.use(bodyParser.json());
 app.use(cors({
-  origin: "http://192.168.1.16:3001",
+  origin: "http://localhost:3000",
   methods: ["GET", "POST"],
   credentials: true,
 }));

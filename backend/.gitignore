@@ -1,1 +1,20 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore environment variables file
 .env
+
+# Ignore logs
+logs
+*.log
+npm-debug.log*
+
+# Ignore OS files
+.DS_Store
+
+# Ignore other files and folders
+.idea/
+.vscode/
+coverage/
+dist/
+build/
