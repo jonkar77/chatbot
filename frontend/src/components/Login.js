@@ -26,10 +26,13 @@ const Login = ({ setIsAuthenticated, displayWelcomeMessage }) => {
   const loginUser = async () => {
     if (username) {
       try {
-        const response = await axios.post("http://localhost:5000/api/login", {
-          user: username,
-          password: password,
-        });
+        const response = await axios.post(
+          "https://chatbot-13k9suove-jonkar77s-projects.vercel.app/api/login",
+          {
+            user: username,
+            password: password,
+          }
+        );
 
         if (response.data) {
           const message = response.data.message ? "Welcome back!" : "Welcome!";
