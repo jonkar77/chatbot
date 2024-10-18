@@ -4,11 +4,6 @@ const User = require("../model/createUser");
 
 router.get("/list_users", async (req, res) => {
   try {
-    res
-      .status(200)
-      .send("<html><body><h1>Reached this point</h1></body></html>");
-
-    // Handle API request (JSON response)
     const uniqueUsers = await User.aggregate([
       {
         $group: {
