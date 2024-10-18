@@ -26,9 +26,9 @@ app.use(
   })
 );
 
-// app.get("/", (req, res) => {
-//   res.send("Server is up and running!");
-// });
+app.get("/", (req, res) => {
+  res.send("Server is up and running!");
+});
 connectDB(mongoUrl);
 
 app.use("/api", userRoutes);
@@ -41,3 +41,5 @@ app.use("/api", listSavedResponseRoutes);
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+module.exports = app;

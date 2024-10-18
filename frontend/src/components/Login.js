@@ -27,7 +27,7 @@ const Login = ({ setIsAuthenticated, displayWelcomeMessage }) => {
     if (username) {
       try {
         const response = await axios.post(
-          "https://chatbot-13k9suove-jonkar77s-projects.vercel.app/api/login",
+          "https://chatbot-two-gamma-66.vercel.app/api/login",
           {
             user: username,
             password: password,
