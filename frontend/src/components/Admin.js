@@ -8,7 +8,7 @@ const AdminPanel = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/list_users");
+        const res = await axios.get("https://chatbot-server-ruddy.vercel.app/api/list_users");
         setUsers(res.data);
         console.log(res.data);
       } catch (error) {

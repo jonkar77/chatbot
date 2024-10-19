@@ -13,7 +13,7 @@ const SavedResponse = () => {
     const fetchResponses = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/get_saved_response",
+          "https://chatbot-server-ruddy.vercel.app/api/get_saved_response",
           {
             params: { user },
           }

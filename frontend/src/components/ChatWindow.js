@@ -23,7 +23,7 @@ const ChatWindow = ({ messages }) => {
         return;
       }
 
-      await axios.post("http://localhost:5000/api/save_response", {
+      await axios.post("https://chatbot-server-ruddy.vercel.app/api/save_response", {
         user,
         summary: response.summary,
         result_text: response.resultText,
