@@ -20,7 +20,7 @@ const mongoUrl = process.env.MONGO_URL;
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "",
+    origin: "https://chatbot-ui-two-bay.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   })
