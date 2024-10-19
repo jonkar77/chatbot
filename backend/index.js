@@ -16,7 +16,7 @@ const PORT = 5000;
 
 dotenv.config();
 
-const mongoUrl = 'mongodb+srv://onkarjoshi296:Joshi%40707@chatbot.zi6ox.mongodb.net/?retryWrites=true&w=majority&appName=chatbot';
+const mongoUrl = 'mongodb+srv://onkarjoshi296:Joshi%40707@chatbot.zi6ox.mongodb.net/?retryWrites=true&w=majority';
 
 app.use(bodyParser.json());
 app.use(
