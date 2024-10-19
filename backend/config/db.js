@@ -1,8 +1,20 @@
 const mongoose = require("mongoose");
 
+let isConnected = false;
+
 const connectDB = async (mongoUrl) => {
+  if (isConnected) {
+    console.log("Using existing MongoDB connection");
+    return;
+  }
+  
   try {
-    await mongoose.connect(mongoUrl);  
+    const db = await mongoose.connect(mongoUrl, {
+      socketTimeoutMS: 45000,  // Keep these settings
+      keepAlive: true,
+      keepAliveInitialDelay: 300000,
+    });
+    isConnected = db.connections[0].readyState === 1;  // Ready state 1 means connected
     console.log("MongoDB connected successfully");
     return { success: true, message: "MongoDB connected successfully" };
   } catch (err) {

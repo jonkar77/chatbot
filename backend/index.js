@@ -32,7 +32,7 @@ app.get("/", async (req, res) => {
   if (connectionStatus.success) {
     res.send("<html><body><h3>Server is up and running!</h3><p>" + connectionStatus.message + "</p></body></html>");
   } else {
-    res.send("<html><body><h3>Server failed to connect!</h3><p>" + connectionStatus.message + "mongoUrl" + mongoUrl+"</p></body></html>");
+    res.send("<html><body><h3>Server failed to connect!</h3><p>" + connectionStatus.message + " mongoUrl: " + mongoUrl+"</p></body></html>");
   }
 });
 
