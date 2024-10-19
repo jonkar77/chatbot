@@ -20,7 +20,7 @@ const mongoUrl = process.env.MONGO_URL;
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "https://chatbot-13k9suove-jonkar77s-projects.vercel.app",
+    origin: "",
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -35,6 +35,7 @@ app.get("/", async (req, res) => {
     res.send("<html><body><h3>Server failed to connect!</h3><p>" + connectionStatus.message + " mongoUrl: " + mongoUrl+"</p></body></html>");
   }
 });
+
 
 app.use("/api", userRoutes);
 app.use("/api", createResponse);
