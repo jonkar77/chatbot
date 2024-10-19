@@ -9,30 +9,30 @@ const messageRoutes = require("./routes/sendMessage");
 const saveResponseRoutes = require("./routes/saveResponse");
 const listUserRoutes = require("./routes/listUser");
 const listSavedResponseRoutes = require("./routes/getResponse");
-const mongoose = require("mongoose");
 
 const app = express();
 const PORT = 5000;
 
 dotenv.config();
 
-const mongoUrl = 'mongodb+srv://onkarjoshi296:Joshi%40707@chatbot.zi6ox.mongodb.net/?retryWrites=true&w=majority';
+const mongoUrl = process.env.MONGO_URL;
 
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "",
+    origin: "https://chatbot-13k9suove-jonkar77s-projects.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   })
 );
 
 app.get("/", async (req, res) => {
-  try {
-    await mongoose.connect(mongoUrl);
-    res.send("<html><body><h3>Server is up and running!</h3><p>" + " MONGO CONNECTED " + "</p></body></html>");
-  } catch (error) {
-    res.send("<html><body><h3>Server failed to connect!</h3><p>" + " FAILED TO CONNECT " +"</p></body></html>");
+  const connectionStatus = await connectDB(mongoUrl);
+  
+  if (connectionStatus.success) {
+    res.send("<html><body><h3>Server is up and running!</h3><p>" + connectionStatus.message + "</p></body></html>");
+  } else {
+    res.send("<html><body><h3>Server failed to connect!</h3><p>" + connectionStatus.message + " mongoUrl: " + mongoUrl+"</p></body></html>");
   }
 });
 
