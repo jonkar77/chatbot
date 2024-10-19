@@ -10,9 +10,8 @@ const connectDB = async (mongoUrl) => {
   
   try {
     const db = await mongoose.connect(mongoUrl, {
-      socketTimeoutMS: 45000,  // Keep these settings
-      keepAlive: true,
-      keepAliveInitialDelay: 300000,
+      socketTimeoutMS: 60000,   
+      connectTimeoutMS: 30000,
     });
     isConnected = db.connections[0].readyState === 1;  // Ready state 1 means connected
     console.log("MongoDB connected successfully");
