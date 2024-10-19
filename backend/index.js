@@ -23,6 +23,7 @@ app.use(
     origin: "https://chatbot-ui-two-bay.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
+    maxAge: 86400
   })
 );
 
