@@ -20,7 +20,7 @@ const mongoUrl = process.env.MONGO_URL;
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "https://chatbot-13k9suove-jonkar77s-projects.vercel.app",
+    origin: "",
     methods: ["GET", "POST"],
     credentials: true,
   })
