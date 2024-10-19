@@ -26,10 +26,15 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.send("Server is up and running!");
+app.get("/", async (req, res) => {
+  const connectionStatus = await connectDB(mongoUrl);
+  
+  if (connectionStatus.success) {
+    res.send("<html><body><h3>Server is up and running!</h3><p>" + connectionStatus.message + "</p></body></html>");
+  } else {
+    res.send("<html><body><h3>Server failed to connect!</h3><p>" + connectionStatus.message + "</p></body></html>");
+  }
 });
-connectDB(mongoUrl);
 
 app.use("/api", userRoutes);
 app.use("/api", createResponse);

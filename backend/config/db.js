@@ -3,14 +3,14 @@ const mongoose = require("mongoose");
 const connectDB = async (mongoUrl) => {
   try {
     await mongoose.connect(mongoUrl, {
-      socketTimeoutMS: 45000,  // Increase socket timeout to 45 seconds
+      socketTimeoutMS: 45000,
       keepAlive: true,
-      keepAliveInitialDelay: 300000,  // Set keep-alive to 5 minutes
+      keepAliveInitialDelay: 300000,
     });
-    
-    console.log("MongoDB connected successfully");
+    return { success: true, message: "MongoDB connected successfully" };
   } catch (err) {
     console.error("MongoDB connection error:", err);
+    return { success: false, message: "MongoDB connection error: " + err.message };
   }
 };
 
