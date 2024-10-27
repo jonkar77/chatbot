@@ -21,7 +21,7 @@ const mongoUrl = process.env.MONGO_URL;
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: `${baseURL}`,
+    origin: null,
     methods: ["GET", "POST"],
     credentials: true,
     maxAge: 86400,
