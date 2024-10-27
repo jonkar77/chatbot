@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "../constants/envConfig";
 
 const AdminPanel = () => {
   const [users, setUsers] = useState([]);
@@ -8,7 +9,8 @@ const AdminPanel = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("https://chatbot-server-ruddy.vercel.app/api/list_users");
+        const res = await axios.get(`${baseURL}/api/list_users`);
+
         setUsers(res.data);
         console.log(res.data);
       } catch (error) {

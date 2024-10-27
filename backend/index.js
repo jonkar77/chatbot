@@ -1,3 +1,4 @@
+import { baseURL } from "./constants/envConfig";
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -20,7 +21,7 @@ const mongoUrl = process.env.MONGO_URL;
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "https://chatbot-en.vercel.app",
+    origin: `${baseURL}`,
     methods: ["GET", "POST"],
     credentials: true,
     maxAge: 86400,

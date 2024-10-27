@@ -7,9 +7,6 @@ import ChatInput from "./components/ChatInput";
 import axios from "axios";
 import { addMessage } from "./redux/slice/messageSlice";
 
-const api = axios.create({
-  baseURL: "https://chatbot-server-ruddy.vercel.app/api",
-});
 
 const App = () => {
   const dispatch = useDispatch();

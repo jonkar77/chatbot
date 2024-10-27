@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "../constants/envConfig";
 
 const Login = ({ setIsAuthenticated, displayWelcomeMessage }) => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const Login = ({ setIsAuthenticated, displayWelcomeMessage }) => {
     if (username) {
       try {
         const response = await axios.post(
-          "https://chatbot-server-ruddy.vercel.app/api/login",
+          `${baseURL}/api/login`,
           {
             user: username,
             password: password,

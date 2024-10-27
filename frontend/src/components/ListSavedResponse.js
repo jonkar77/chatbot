@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import { baseURL } from "../constants/envConfig";
 
 const SavedResponse = () => {
   const location = useLocation();
@@ -13,7 +14,7 @@ const SavedResponse = () => {
     const fetchResponses = async () => {
       try {
         const response = await axios.get(
-          "https://chatbot-server-ruddy.vercel.app/api/get_saved_response",
+          `${baseURL}/api/get_saved_response`,
           {
             params: { user },
           }

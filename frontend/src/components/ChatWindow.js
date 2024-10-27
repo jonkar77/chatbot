@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { baseURL } from "../constants/envConfig";
 
 const ChatWindow = ({ messages }) => {
   const messagesEndRef = useRef(null);
@@ -23,7 +24,7 @@ const ChatWindow = ({ messages }) => {
         return;
       }
 
-      await axios.post("https://chatbot-server-ruddy.vercel.app/api/save_response", {
+      await axios.post(`${baseURL}/api/save_response`, {
         user,
         summary: response.summary,
         result_text: response.resultText,
