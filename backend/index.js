@@ -1,4 +1,4 @@
-import { baseURL } from "./constants/envConfig";
+const { baseURL } = require("./constants/envConfig");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -28,25 +28,16 @@ app.use(
   })
 );
 
-app.get("/", async (req, res) => {
+(async () => {
   const connectionStatus = await connectDB(mongoUrl);
-
   if (connectionStatus.success) {
-    res.send(
-      "<html><body><h3>Server is up and running!</h3><p>" +
-        connectionStatus.message +
-        "</p></body></html>"
-    );
+    console.log("Successfully connected to MongoDB");
   } else {
-    res.send(
-      "<html><body><h3>Server failed to connect!</h3><p>" +
-        connectionStatus.message +
-        " mongoUrl: " +
-        mongoUrl +
-        "</p></body></html>"
-    );
+    console.log("Failed to connect to MongoDB:", connectionStatus.message);
   }
-});
+})();
+
+
 
 app.use("/api", userRoutes);
 app.use("/api", createResponse);

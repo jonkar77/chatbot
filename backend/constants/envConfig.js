@@ -1,13 +1,5 @@
-export const env = process.env.REACT_APP_ENV || 'local';
+const baseURL = process.env.NODE_ENV === "production" 
+  ? "https://chatbot-en.vercel.app" 
+  : "http://localhost:3000";
 
-let frontendApi;
-
-switch (env) {
-  case 'prod':
-    frontendApi = 'https://chatbot-en.vercel.app';
-    break;
-  default:
-    frontendApi = 'http://localhost:3000';
-}
-
-export const baseURL = frontendApi;
+module.exports = { baseURL };

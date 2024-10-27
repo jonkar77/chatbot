@@ -27,6 +27,7 @@ const Login = ({ setIsAuthenticated, displayWelcomeMessage }) => {
   const loginUser = async () => {
     if (username) {
       try {
+        console.log(`${baseURL}`);
         const response = await axios.post(
           `${baseURL}/api/login`,
           {
