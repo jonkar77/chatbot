@@ -4,7 +4,7 @@ let backendApi;
 
 switch (env) {
   case 'local':
-    backendApi = 'http://localhost:5000';
+    backendApi = 'https://chatbot-server-ruddy.vercel.app';
     break;
   default:
     backendApi = 'https://chatbot-server-ruddy.vercel.app';
