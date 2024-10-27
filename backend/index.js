@@ -16,12 +16,13 @@ const PORT = 5000;
 
 dotenv.config();
 
+console.log(`${baseURL}`);
 const mongoUrl = process.env.MONGO_URL;
 
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: null,
+    origin: `${baseURL}`,
     methods: ["GET", "POST"],
     credentials: true,
     maxAge: 86400,
